@@ -1,53 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Tools</title>
-  <style>
-    body {
-      background-color: #1b1f24;
-      color: #fff;
-      font-family: sans-serif;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      color: #fff;
-    }
-    a {
-      color: #fff;
-    }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-    .box {
-      background-color: #282c34;
-      padding: 20px;
-      margin-bottom: 20px;
-      border-radius: 5px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>PySummurai</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>My Tools</h1>
-    <div class="box">
-      <h2>Python Tools</h2>
-      <ul>
-        <li><a href="#">Tool 1</a></li>
-        <li><a href="#">Tool 2</a></li>
-        <li><a href="#">Tool 3</a></li>
-      </ul>
-    </div>
-    <div class="box">
-      <h2>JavaScript Tools</h2>
-      <ul>
-        <li><a href="#">Tool 1</a></li>
-        <li><a href="#">Tool 2</a></li>
-        <li><a href="#">Tool 3</a></li>
-      </ul>
-    </div>
-  </div>
+    <header>
+        <h1>Summarizer</h1>
+        <button id="theme-toggle">Toggle Theme</button>
+    </header>
+    <main>
+        <div id="input-container">
+            <textarea id="input-text" placeholder="Paste your text here..."></textarea>
+        </div>
+        <div id="controls-container">
+            <!-- Controls for each summarization method will be dynamically generated here -->
+        </div>
+        <div id="output-container">
+            <!-- Output from each summarization method will be dynamically generated here -->
+        </div>
+    </main>
+    <script src="app.js"></script>
 </body>
 </html>
