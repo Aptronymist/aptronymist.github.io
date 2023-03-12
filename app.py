@@ -1,6 +1,3 @@
-"""
-Python 3 flask app to summarize text with sumy
-"""
 from flask import Flask, render_template, request
 from sumy.parsers.plaintext import PlaintextParser as pp
 from sumy.nlp.tokenizers import Tokenizer
@@ -8,6 +5,7 @@ from sumy.summarizers import *
 from sumy.utils import get_stop_words
 
 app = Flask(__name__)
+
 
 @app.route('/', methods=['GET', 'POST'])
 def summ():
@@ -33,6 +31,7 @@ def summ():
         return render_template('index.html', text=text, summary_options=summary_options)
 
     return render_template('index.html')
-    
+
+
 if __name__ == '__main__':
     app.run(debug=True)

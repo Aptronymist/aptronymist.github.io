@@ -29,7 +29,7 @@ form.addEventListener('submit', (event) => {
 
   const text = document.getElementById('input-text').value.trim();
 
-  fetch('/summarize', {
+  fetch('/', {
     method: 'POST',
     body: JSON.stringify({ text: text }),
     headers: {
