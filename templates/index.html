@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>PySummurai</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body>
+    <header>
+      <h1>Summarizer</h1>
+      <label class="theme-switch">
+        <input type="checkbox">
+        <span class="slider round"></span>
+      </label>
+    </header>
+    <main>
+      <div id="input-container">
+        <form id="summarize-form">
+          <textarea id="input-text" placeholder="Paste your text here..."></textarea>
+          <button type="submit">Summarize</button>
+        </form>
+      </div>
+      <div id="output-container" class="hidden"></div>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
