@@ -12,12 +12,12 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def summ():
     text = 'text'
-    lang = 'english'
     summary_options = {}
 
     if request.method == 'POST':
         text = request.form.get('text')
         if text:
+            lang = 'english'
             parser = pp.from_string(text, Tokenizer(lang))
             summary_options = {
                 n: {'sum': i(), 'summary': i()(parser.document, sentences_count=5)}

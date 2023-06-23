@@ -32,21 +32,18 @@ def sumy_summary(docx):
 	lex_summarizer = LexRankSummarizer()
 	summary = lex_summarizer(parser.document,3)
 	summary_list = [str(sentence) for sentence in summary]
-	result = ' '.join(summary_list)
-	return result
+	return ' '.join(summary_list)
 
 # Reading Time
 def readingTime(mytext):
 	total_words = len([ token.text for token in nlp(mytext)])
-	estimatedTime = total_words/200.0
-	return estimatedTime
+	return total_words/200.0
 
 # Fetch Text From Url
 def get_text(url):
 	page = urlopen(url)
 	soup = BeautifulSoup(page)
-	fetched_text = ' '.join(map(lambda p:p.text,soup.find_all('p')))
-	return fetched_text
+	return ' '.join(map(lambda p:p.text,soup.find_all('p')))
 
 
 @app.route('/')
@@ -114,19 +111,19 @@ def analyse():
 		blob_sentiment,blob_subjectivity = blob.sentiment.polarity ,blob.sentiment.subjectivity
 		number_of_tokens = len(list(blob.words))
 		# Extracting Main Points
-		nouns = list()
+		nouns = []
 		for word, tag in blob.tags:
-		    if tag == 'NN':
-		        nouns.append(word.lemmatize())
-		        len_of_words = len(nouns)
-		        rand_words = random.sample(nouns,len(nouns))
-		        final_word = list()
-		        for item in rand_words:
-		        	word = Word(item).pluralize()
-		        	final_word.append(word)
-		        	summary = final_word
-		        	end = time.time()
-		        	final_time = end-start
+			if tag == 'NN':
+				nouns.append(word.lemmatize())
+				len_of_words = len(nouns)
+				rand_words = random.sample(nouns,len(nouns))
+				final_word = []
+				for item in rand_words:
+					word = Word(item).pluralize()
+					final_word.append(word)
+					summary = final_word
+					end = time.time()
+					final_time = end-start
 
 
 	return render_template('analyzer.html',received_text = received_text2,number_of_tokens=number_of_tokens,blob_sentiment=blob_sentiment,blob_subjectivity=blob_subjectivity,summary=summary,final_time=final_time)
